@@ -1,6 +1,7 @@
 # Set PROJECT_NAME_UPPERCASE and PROJECT_NAME_LOWERCASE variables
 string(TOUPPER ${PROJECT_NAME} PROJECT_NAME_UPPERCASE)
 string(TOLOWER ${PROJECT_NAME} PROJECT_NAME_LOWERCASE)
+message(STATUS "[THAT]:[${CMAKE_CURRENT_LIST_FILE}:${CMAKE_CURRENT_LIST_LINE}] [${PROJECT_NAME}]")
 
 # Library name (by default is the project name)
 if(NOT LIBRARY_NAME)
@@ -18,7 +19,7 @@ set(CMAKE_DEBUG_POSTFIX "d")
 
 # Select library type (default: STATIC)
 option(BUILD_SHARED_LIBS "Build ${LIBRARY_NAME} as a shared library." OFF)
-message(STATUS "BUILD_SHARED_LIBS: ${BUILD_SHARED_LIBS}")
+message(STATUS "[THAT]:[${CMAKE_CURRENT_LIST_FILE}:${CMAKE_CURRENT_LIST_LINE}] BUILD_SHARED_LIBS: ${BUILD_SHARED_LIBS}")
 
 # Build type (default: RELEASE)
 #
@@ -51,11 +52,11 @@ message(STATUS "CMAKE_GENERATOR: ${CMAKE_GENERATOR}")
 set(GENERATED_HEADERS_DIR
   "${CMAKE_CURRENT_BINARY_DIR}/generated_headers"
 )
-
+message(STATUS "[THAT]:[${CMAKE_CURRENT_LIST_FILE}:${CMAKE_CURRENT_LIST_LINE}][GENERATED_HEADERS_DIR]: ${GENERATED_HEADERS_DIR}")
 # Create 'version.h'
 configure_file(
-  "${PROJECT_SOURCE_DIR}/${LIBRARY_FOLDER}/version.h.in"
-  "${GENERATED_HEADERS_DIR}/${LIBRARY_FOLDER}/version.h"
+  "${PROJECT_SOURCE_DIR}/version.h.in"
+  "${GENERATED_HEADERS_DIR}/version.h"
   @ONLY
 )
 
@@ -72,11 +73,13 @@ include(GNUInstallDirs)
 set(CONFIG_INSTALL_DIR "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
 
 # Configuration
+
 set(GENERATED_DIR       "${CMAKE_CURRENT_BINARY_DIR}/generated")
 set(VERSION_CONFIG_FILE "${GENERATED_DIR}/${PROJECT_NAME}ConfigVersion.cmake")
 set(PROJECT_CONFIG_FILE "${GENERATED_DIR}/${PROJECT_NAME}Config.cmake")
 set(TARGETS_EXPORT_NAME "${PROJECT_NAME}Targets")
 
+message(STATUS "[THAT][GENERATED_DIR]: ${GENERATED_DIR}")
 # Include module with functions:
 #   - write_basic_package_version_file(...)
 #   - configure_package_config_file(...)
@@ -96,17 +99,18 @@ write_basic_package_version_file(
 #   - TARGETS_EXPORT_NAME
 #   - PROJECT_NAME
 configure_package_config_file(
-    "${PROJECT_SOURCE_DIR}/cmake/Config.cmake.in"
+    "${CMAKE_UTIL_DIR}/Config.cmake.in"
     "${PROJECT_CONFIG_FILE}"
       INSTALL_DESTINATION "${CONFIG_INSTALL_DIR}"
 )
 
 # Uninstall targets
-configure_file("${PROJECT_SOURCE_DIR}/cmake/Uninstall.cmake.in"
-  "${GENERATED_DIR}/Uninstall.cmake"
+configure_file("${CMAKE_UTIL_DIR}/Uninstall.cmake.in"
+  "${GENERATED_DIR}/Uninstall_${PROJECT_NAME}.cmake"
   IMMEDIATE @ONLY)
-add_custom_target(uninstall
-  COMMAND ${CMAKE_COMMAND} -P ${GENERATED_DIR}/Uninstall.cmake)
+
+add_custom_target(uninstall_${PROJECT_NAME}
+  COMMAND ${CMAKE_COMMAND} -P ${GENERATED_DIR}/Uninstall_${PROJECT_NAME}.cmake)
 
 # Always full RPATH (for shared libraries)
 #  https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/RPATH-handling
@@ -132,4 +136,5 @@ if(BUILD_SHARED_LIBS)
 endif()
 
 # CMake Registry
-include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/CMakeRegistry.cmake)
+message(STATUS "[THAT]:[${CMAKE_CURRENT_LIST_FILE}:${CMAKE_CURRENT_LIST_LINE}] [FILE:SetEnv.cmake:]CMAKE_UTIL_DIR-> ${CMAKE_UTIL_DIR}")
+include(${CMAKE_UTIL_DIR}/CMakeRegistry.cmake)

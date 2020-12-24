@@ -11,18 +11,18 @@ ROOT=$(readlink -f ${SCRIPT_ABS_PATH}/../)
 cd $ROOT
 
 # Build type
-BUILD_TYPE=Release
-# BUILD_TYPE=Debug
+#BUILD_TYPE=Release
+ BUILD_TYPE=Debug
 
 # Build folder
-BUILD_DIR=_build
+BUILD_DIR=build
 
 # Installation folder
-INSTALL_DIR=_install
+INSTALL_DIR=install
 
 # Library type
-BUILD_SHARED_LIBS=OFF    # Static
-# BUILD_SHARED_LIBS=ON   # Shared
+#BUILD_SHARED_LIBS=OFF    # Static
+BUILD_SHARED_LIBS=ON   # Shared
 
 # Options summary
 echo ""

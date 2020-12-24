@@ -23,6 +23,7 @@
  */
 
 #include "malbinary.h"
+#include "malbinary_encoder.h"
 
 mal_encoder_t *malbinary_encoder_new(bool varint_supported) {
   mal_encoder_t *self = (mal_encoder_t *) malloc(sizeof(mal_encoder_t));
@@ -326,12 +327,13 @@ int malbinary_encoder_add_ushort_encoding_length(mal_encoder_t *self,
   return rc;
 }
 
-int malbinary_encoder_add_boolean_encoding_length(mal_encoder_t *self,
-    mal_boolean_t to_encode, void *cursor) {
+int malbinary_encoder_add_boolean_encoding_length(mal_encoder_t *self, mal_boolean_t to_encode, void *cursor)
+{
   int rc = 0;
   ((malbinary_cursor_t *) cursor)->body_length += 1;
   return rc;
 }
+
 
 int malbinary_encoder_add_blob_encoding_length(mal_encoder_t *self,
     mal_blob_t *to_encode, void *cursor) {
@@ -794,8 +796,9 @@ int malbinary_encoder_encode_attribute(mal_encoder_t *encoder, void *cursor, uns
 // NOTE: The malbinary encoding functions should be private and only used through
 // the mal_encoder_t structure.
 
-void malbinary_init_encode_functions(mal_encoder_t *self) {
-  mal_encoder_initialize_functions(self,
+void malbinary_init_encode_functions2(mal_encoder_t *self) {
+
+    mal_encoder_initialize_functions(self,
       malbinary_encoder_new_cursor,
       malbinary_cursor_reset,
       malbinary_cursor_init,

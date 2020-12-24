@@ -37,6 +37,7 @@ endif()
 function (register_package PACKAGE_FOLDER)
   if (NOT IS_ABSOLUTE "${PACKAGE_FOLDER}")
     set (PACKAGE_FOLDER "${CMAKE_INSTALL_PREFIX}/${PACKAGE_FOLDER}")
+    message(STATUS "[THAT:] PACKAGE_FOLDER :${PACKAGE_FOLDER}")
   endif ()
 
   string (MD5 REGISTRY_ENTRY "${PACKAGE_FOLDER}")

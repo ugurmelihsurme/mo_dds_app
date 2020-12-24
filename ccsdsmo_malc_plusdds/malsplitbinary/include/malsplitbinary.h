@@ -32,8 +32,8 @@
 extern "C" {
 #endif
 
-#include "malsplitbinary_library.h"
-
+//#include "malsplitbinary_library.h"
+#include "malbinary.h"
 struct _malsplitbinary_cursor_t {
   malbinary_cursor_t malbinary_cursor;
   // Pointer to the bitfield.

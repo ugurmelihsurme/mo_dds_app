@@ -1,0 +1,1 @@
+/usr/bin/g++  -g   CMakeFiles/bar.dir/bar.cpp.o  -o bar 

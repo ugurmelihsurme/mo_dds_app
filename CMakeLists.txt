@@ -3,15 +3,14 @@ cmake_minimum_required(VERSION 3.17)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_MESSAGE_LOG_LEVEL DEBUG)
 # Set project name and version
-project(ccsdsmo_malc_plusdds VERSION 0.0.1)
+project(ccsdsmo_malc_plusdds)
 
-# Set environment variables
-include(${PROJECT_SOURCE_DIR}/cmake/SetEnv.cmake)
-
+set(CMAKE_UTIL_DIR ${PROJECT_SOURCE_DIR}/cmake)
 # Library sources
-message(STATUS "Melih:${LIBRARY_FOLDER}")
-add_subdirectory(${LIBRARY_FOLDER})
+add_subdirectory(ccsdsmo_malc_plusdds)
 
 # Library examples
 add_subdirectory(testapp)
+

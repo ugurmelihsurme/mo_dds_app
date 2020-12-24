@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="util"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\ccsdsmo_malc_plusdds\;CMake Files\ccsdsmo_malc_plusdds\util\;CMake Files\testapp\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="util">
+				<Option output="/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/libutild.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util"/>
+					<Add directory="/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/include"/>
+					<Add directory="/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/src"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/c++/7/x86_64-suse-linux"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/7/include-fixed"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/Makefile&quot;  VERBOSE=1 util"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="util/fast">
+				<Option output="/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/libutild.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util"/>
+					<Add directory="/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/include"/>
+					<Add directory="/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/src"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/c++/7/x86_64-suse-linux"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/7/include-fixed"/>
+					<Add directory="/usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j4 -f &quot;/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/Makefile&quot;  VERBOSE=1 util/fast"/>
+					<CompileFile command="/usr/bin/gmake -j4 -f &quot;/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j4 -f &quot;/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j4 -f &quot;/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/src/clog.c">
+			<Option target="util"/>
+		</Unit>
+		<Unit filename="/home/ugur/projects/mo_dds_app/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/ugur/projects/mo_dds_app/cmake/CMakeRegistry.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/ugur/projects/mo_dds_app/cmake/Config.cmake.in">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/ugur/projects/mo_dds_app/cmake/SetEnv.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/ugur/projects/mo_dds_app/cmake/Uninstall.cmake.in">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\ccsdsmo_malc_plusdds\"/>
+		</Unit>
+		<Unit filename="/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/version.h.in">
+			<Option virtualFolder="CMake Files\ccsdsmo_malc_plusdds\"/>
+		</Unit>
+		<Unit filename="/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\ccsdsmo_malc_plusdds\util\"/>
+		</Unit>
+		<Unit filename="/home/ugur/projects/mo_dds_app/ccsdsmo_malc_plusdds/util/util.pc.in">
+			<Option virtualFolder="CMake Files\ccsdsmo_malc_plusdds\util\"/>
+		</Unit>
+		<Unit filename="/home/ugur/projects/mo_dds_app/testapp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\testapp\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

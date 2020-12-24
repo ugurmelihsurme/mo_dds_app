@@ -3,12 +3,12 @@ add_library(${LIBRARY_NAME}
   ${SOURCES}
   ${HEADERS_PUBLIC}
   ${HEADERS_PRIVATE}
-  )
+)
 
 # Alias:
 #   - Foo::foo alias of foo
 add_library(${PROJECT_NAME}::${LIBRARY_NAME} ALIAS ${LIBRARY_NAME})
-
+message(STATUS "[THAT]:[${CMAKE_CURRENT_LIST_FILE}:${CMAKE_CURRENT_LIST_LINE}] ${PROJECT_NAME}::${LIBRARY_NAME}")
 # C++11
 target_compile_features(${LIBRARY_NAME} PUBLIC cxx_std_11)
 
@@ -29,12 +29,17 @@ target_include_directories(
     "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>"
     "$<BUILD_INTERFACE:${GENERATED_HEADERS_DIR}>"
     "$<INSTALL_INTERFACE:.>"
+    PRIVATE
+    include/
 )
+
+
 
 # Targets:
 #   - <prefix>/lib/libfoo.a
 #   - header location after install: <prefix>/foo/foo.h
 #   - headers can be included by C++ code `#include <foo/foo.h>`
+message(STATUS "[THAT]:[${CMAKE_CURRENT_LIST_FILE}:${CMAKE_CURRENT_LIST_LINE}]  CMAKE_INSTALL_LIBDIR:${CMAKE_INSTALL_LIBDIR} and CMAKE_INSTALL_INCLUDEDIR:${CMAKE_INSTALL_INCLUDEDIR}")
 install(
     TARGETS              "${LIBRARY_NAME}"
     EXPORT               "${TARGETS_EXPORT_NAME}"
@@ -54,9 +59,11 @@ install(
 # Headers:
 #   - generated_headers/foo/version.h -> <prefix>/include/foo/version.h
 install(
-    FILES       "${GENERATED_HEADERS_DIR}/${LIBRARY_FOLDER}/version.h"
+    #FILES       "${GENERATED_HEADERS_DIR}/${LIBRARY_FOLDER}/version.h"
+    FILES       "${GENERATED_HEADERS_DIR}/version.h"
     DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/${LIBRARY_FOLDER}"
 )
+message(STATUS "[THAT]:[${CMAKE_CURRENT_LIST_FILE}:${CMAKE_CURRENT_LIST_LINE}]  GENERATED_HEADERS_DIR -> ${GENERATED_HEADERS_DIR}")
 
 # Config
 #   - <prefix>/lib/cmake/Foo/FooConfig.cmake
